@@ -103,13 +103,25 @@ def build_report(items: list[dict]) -> str:
     captured_pages = set(org["pages"]) | set(coza["pages"])
     captured_assets = set(org["assets"]) | set(coza["assets"])
 
-    # 1. pages that only ever errored in the archive (both domains)
+    # 1. pages that only ever errored in the archive (both domains).
+    # 3xx-only rows are aliases, not losses; webmail/infra paths are noise.
+    noise_prefixes = (
+        "/.well-known", "/misc", "/includes", "/modules", "/themes",
+        "/comment", "/app_themes", "/main/", "/mobile", "/default.aspx",
+        "/cgi-sys", "/users", "/user", "/search", "/ads.txt", "/app-ads.txt",
+        "/changelog.txt", "/xmlrpc.php", "/install.php", "/update.php",
+        "/cron.php", "/taxonomy", "/category", "/filter",
+    )
     never_pages = {}
     for idx in (org, coza):
         for k, (status, url) in idx["never_ok"].items():
             if k in captured_pages or k in captured_assets:
                 continue
             if any(k.endswith(e) for e in (".css", ".js", ".txt", ".ico")):
+                continue
+            if status.startswith("3") or "webmail." in url:
+                continue
+            if k.lower().startswith(noise_prefixes) or k.strip() in ("/", ""):
                 continue
             never_pages.setdefault(k, (status, url))
 
@@ -128,8 +140,12 @@ def build_report(items: list[dict]) -> str:
             if p and p not in captured_pages and p not in captured_assets \
                     and not p.startswith(("/user", "/search", "/taxonomy",
                                           "/category", "/popular", "/comment",
-                                          "/media-gallery", "/gallery-collections")) \
-                    and p not in ("/", "/rss.xml"):
+                                          "/media-gallery",
+                                          "/gallery-collections", "/node",
+                                          "/misc", "/modules", "/sites",
+                                          "/filter", "/blogs")) \
+                    and "?" not in p \
+                    and p not in ("/", "/rss.xml", "/blog", "/archive"):
                 referenced_missing_pages[p].add(page)
 
     lines = [
