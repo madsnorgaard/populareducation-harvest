@@ -311,8 +311,11 @@ def parse_page(cfg: dict, slug: str, key: str, ts: str, orig: str, html: str,
     for img in content.find_all("img"):
         if img.get("src"):
             img["src"] = _relativize(urljoin(orig, img["src"]))
-    # attachments are carried as MediaRefs; drop the field wrapper from body
-    for el in content.select(".field-name-field-resource-file-attachement"):
+    # attachments are carried as MediaRefs; drop the field wrapper from body,
+    # and drop the D7 media-gallery thumbnail machinery (field_images
+    # replaces it downstream).
+    for el in content.select(".field-name-field-resource-file-attachement, "
+                             ".field-name-media-gallery-media"):
         el.decompose()
     # D7 prints <!-- /.region --> etc.; str(Comment) drops the markers and
     # leaks the text, so remove comments outright.
@@ -320,6 +323,7 @@ def parse_page(cfg: dict, slug: str, key: str, ts: str, orig: str, html: str,
         c.extract()
     # prefer the bare D7 body field over region/block wrappers
     body_root = (content.select_one(".field-name-body")
+                 or content.select_one(".field-name-media-gallery-description")
                  or content.select_one("div.content[class*='node-']")
                  or content)
     body_html = "".join(str(c) for c in body_root.children).strip()

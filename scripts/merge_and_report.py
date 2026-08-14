@@ -77,6 +77,23 @@ def merge() -> list[dict]:
     for item in merged:
         if item["kind"] == "page" and has_audio(item):
             item["kind"] = "audio_item"
+
+    # The .co.za domain was spam-squatted in its later archived life; junk
+    # pages have no Drupal node-type body class. Real node pages always do,
+    # so keep only detected nodes, listings, gallery media, and the known
+    # non-node section paths.
+    keep_paths = {"/definitions-popular-education"}
+    before = len(merged)
+    merged = [
+        it for it in merged
+        if it.get("extra", {}).get("node_type")
+        or it["kind"] in ("listing", "gallery_media")
+        or it["identifiers"].get("legacy_path") in keep_paths
+    ]
+    dropped = before - len(merged)
+    if dropped:
+        print(f"dropped {dropped} pages with no Drupal node type "
+              f"(spam-squat era or non-content)")
     return merged
 
 
