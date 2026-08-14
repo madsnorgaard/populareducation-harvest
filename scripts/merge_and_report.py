@@ -60,15 +60,19 @@ def merge() -> list[dict]:
             pick = dict(pick)
             pick["extra"] = dict(pick.get("extra") or {})
             pick["extra"]["merged_from"] = [a["source"], b["source"]]
-            # union of media by origin_url
+            # union of media by origin_url; a downloaded ref always beats a
+            # dead one (one mirror often lost a file the other kept)
             for bucket in ("images", "files"):
-                seen = {m.get("origin_url") or m.get("url")
-                        for m in pick.get(bucket, [])}
+                by_key = {}
+                for m in pick.get(bucket, []):
+                    by_key[m.get("origin_url") or m.get("url")] = m
                 for m in other.get(bucket, []):
                     mk = m.get("origin_url") or m.get("url")
-                    if mk not in seen:
-                        pick.setdefault(bucket, []).append(m)
-                        seen.add(mk)
+                    cur = by_key.get(mk)
+                    if cur is None or (m.get("downloaded")
+                                       and not cur.get("downloaded")):
+                        by_key[mk] = m
+                pick[bucket] = list(by_key.values())
             merged.append(pick)
         else:
             merged.append(dict(a or b))
