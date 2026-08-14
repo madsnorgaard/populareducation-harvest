@@ -17,7 +17,7 @@ import logging
 import re
 from urllib.parse import urlsplit, unquote, urljoin
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 
 from .. import config
 from ..schema import Item, MediaRef, stable_id
@@ -314,10 +314,17 @@ def parse_page(cfg: dict, slug: str, key: str, ts: str, orig: str, html: str,
     # attachments are carried as MediaRefs; drop the field wrapper from body
     for el in content.select(".field-name-field-resource-file-attachement"):
         el.decompose()
+    # D7 prints <!-- /.region --> etc.; str(Comment) drops the markers and
+    # leaks the text, so remove comments outright.
+    for c in content.find_all(string=lambda t: isinstance(t, Comment)):
+        c.extract()
     # prefer the bare D7 body field over region/block wrappers
-    body_field = content.select_one(".field-name-body")
-    body_root = body_field if body_field is not None else content
+    body_root = (content.select_one(".field-name-body")
+                 or content.select_one("div.content[class*='node-']")
+                 or content)
     body_html = "".join(str(c) for c in body_root.children).strip()
+    if not body_root.get_text(strip=True) and not body_root.find("img"):
+        body_html = ""
     text = re.sub(r"\n{3,}", "\n\n", content.get_text("\n", strip=True))
 
     extra["internal_links"] = internal_links[:200]

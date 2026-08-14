@@ -45,6 +45,11 @@ def merge() -> list[dict]:
     coza = load_items(PREFERRED)
     keys = sorted(set(org) | set(coza))
     merged = []
+
+    def has_audio(item: dict) -> bool:
+        return any((m.get("kind") == "audio" and m.get("downloaded"))
+                   for m in item.get("files", []))
+
     for k in keys:
         a, b = coza.get(k), org.get(k)
         if a and b:
@@ -66,7 +71,12 @@ def merge() -> list[dict]:
                         seen.add(mk)
             merged.append(pick)
         else:
-            merged.append(a or b)
+            merged.append(dict(a or b))
+    # Pages carrying recordings are audio items (the D7 site had no audio
+    # node type; the PEN 2018 archive lives on plain pages).
+    for item in merged:
+        if item["kind"] == "page" and has_audio(item):
+            item["kind"] = "audio_item"
     return merged
 
 

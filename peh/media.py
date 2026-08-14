@@ -69,12 +69,38 @@ class Downloader:
         self.policy = policy
         self.max_bytes = max_file_mb * 1024 * 1024
         self.stats = {"downloaded": 0, "hotlinked": 0, "skipped": 0, "failed": 0,
-                      "bytes": 0}
+                      "bytes": 0, "cached": 0}
+        self._cache_path = media_root / "url-cache.json"
+        try:
+            import json as _json
+            self._url_cache = _json.loads(self._cache_path.read_text("utf-8"))
+        except Exception:
+            self._url_cache = {}
+
+    def _cache_put(self, m: MediaRef):
+        import json as _json
+        self._url_cache[m.url] = {
+            "sha256": m.sha256, "mime": m.mime, "size": m.size,
+            "local_path": m.local_path, "kind": m.kind,
+        }
+        self._cache_path.write_text(
+            _json.dumps(self._url_cache), encoding="utf-8")
 
     def fetch(self, m: MediaRef) -> MediaRef:
         m.kind = m.kind or guess_kind(m.url, m.mime)
         if not _should_download(m, self.policy):
             self.stats["hotlinked"] += 1
+            return m
+        cached = self._url_cache.get(m.url)
+        if cached and cached.get("local_path") and \
+                (self.media_root.parent / cached["local_path"]).exists():
+            m.sha256 = cached["sha256"]
+            m.mime = cached["mime"]
+            m.size = cached["size"]
+            m.local_path = cached["local_path"]
+            m.kind = cached.get("kind") or m.kind
+            m.downloaded = True
+            self.stats["cached"] += 1
             return m
         ok, status, data, headers = self.f.stream(m.url, max_bytes=self.max_bytes)
         if not ok or data is None:
@@ -97,4 +123,5 @@ class Downloader:
         m.downloaded = True
         self.stats["downloaded"] += 1
         self.stats["bytes"] += len(data)
+        self._cache_put(m)
         return m
