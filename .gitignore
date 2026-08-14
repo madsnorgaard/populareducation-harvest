@@ -1,0 +1,7 @@
+output/
+.venv/
+__pycache__/
+*.pyc
+config.local.json
+harvest-run.log
+nohup.out
