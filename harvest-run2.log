@@ -1,0 +1,155 @@
+22:55:22 INFO    peh.runner | === harvest wayback_org (limit=None, download=True) ===
+22:55:22 INFO    peh.wayback | populareducation.org.za: 743 pages, 157 assets, 63 never-ok URLs
+22:55:28 INFO    peh.runner |   wayback_org: 10 items
+22:55:31 INFO    peh.runner |   wayback_org: 20 items
+22:55:37 INFO    peh.runner |   wayback_org: 30 items
+22:55:39 INFO    peh.runner |   wayback_org: 40 items
+22:56:44 INFO    peh.runner |   wayback_org: 50 items
+22:56:44 INFO    peh.runner |   wayback_org: 60 items
+22:56:51 INFO    peh.runner |   wayback_org: 70 items
+22:56:53 INFO    peh.runner |   wayback_org: 80 items
+22:56:55 INFO    peh.runner |   wayback_org: 90 items
+22:56:56 INFO    peh.runner |   wayback_org: 100 items
+22:57:43 INFO    peh.runner |   wayback_org: 110 items
+22:57:43 INFO    peh.runner |   wayback_org: 120 items
+22:57:51 INFO    peh.runner |   wayback_org: 130 items
+22:57:51 INFO    peh.runner |   wayback_org: 140 items
+22:57:51 INFO    peh.runner |   wayback_org: 150 items
+22:57:52 INFO    peh.runner |   wayback_org: 160 items
+22:57:52 INFO    peh.runner |   wayback_org: 170 items
+22:57:55 INFO    peh.runner |   wayback_org: 180 items
+22:57:55 INFO    peh.runner |   wayback_org: 190 items
+22:57:57 INFO    peh.runner |   wayback_org: 200 items
+22:57:57 INFO    peh.runner |   wayback_org: 210 items
+22:57:57 INFO    peh.runner |   wayback_org: 220 items
+22:57:58 INFO    peh.runner |   wayback_org: 230 items
+22:58:03 INFO    peh.runner |   wayback_org: 240 items
+22:58:04 INFO    peh.runner |   wayback_org: 250 items
+22:58:07 INFO    peh.runner |   wayback_org: 260 items
+23:00:10 INFO    peh.runner |   wayback_org: 270 items
+23:00:11 INFO    peh.runner |   wayback_org: 280 items
+23:00:11 INFO    peh.runner |   wayback_org: 290 items
+23:00:20 INFO    peh.runner |   wayback_org: 300 items
+23:01:05 INFO    peh.runner |   wayback_org: 310 items
+23:01:08 INFO    peh.runner |   wayback_org: 320 items
+23:01:13 INFO    peh.runner |   wayback_org: 330 items
+23:01:13 INFO    peh.runner |   wayback_org: 340 items
+23:01:17 INFO    peh.runner |   wayback_org: 350 items
+23:01:20 INFO    peh.runner |   wayback_org: 360 items
+23:01:23 INFO    peh.runner |   wayback_org: 370 items
+23:01:38 INFO    peh.runner |   wayback_org: 380 items
+23:01:43 INFO    peh.runner |   wayback_org: 390 items
+23:01:44 INFO    peh.runner |   wayback_org: 400 items
+23:01:48 INFO    peh.runner |   wayback_org: 410 items
+23:01:51 INFO    peh.runner |   wayback_org: 420 items
+23:01:51 INFO    peh.runner |   wayback_org: 430 items
+23:01:52 INFO    peh.runner |   wayback_org: 440 items
+23:01:54 INFO    peh.runner |   wayback_org: 450 items
+23:01:54 INFO    peh.runner |   wayback_org: 460 items
+23:02:04 INFO    peh.runner |   wayback_org: 470 items
+23:02:05 INFO    peh.runner |   wayback_org: 480 items
+23:02:05 INFO    peh.runner |   wayback_org: 490 items
+23:02:05 INFO    peh.runner |   wayback_org: 500 items
+23:02:05 INFO    peh.runner |   wayback_org: 510 items
+23:02:25 INFO    peh.runner |   wayback_org: 520 items
+23:02:25 INFO    peh.runner |   wayback_org: 530 items
+23:02:39 INFO    peh.runner |   wayback_org: 540 items
+23:02:39 INFO    peh.runner |   wayback_org: 550 items
+23:02:39 INFO    peh.runner |   wayback_org: 560 items
+23:02:39 INFO    peh.runner |   wayback_org: 570 items
+23:02:40 INFO    peh.runner |   wayback_org: 580 items
+23:02:43 INFO    peh.runner |   wayback_org: 590 items
+23:02:43 INFO    peh.runner |   wayback_org: 600 items
+23:02:46 INFO    peh.runner |   wayback_org: 610 items
+23:02:46 INFO    peh.runner |   wayback_org: 620 items
+23:02:52 INFO    peh.runner |   wayback_org: 630 items
+23:02:53 INFO    peh.runner |   wayback_org: 640 items
+23:03:00 INFO    peh.runner |   wayback_org: 650 items
+23:03:00 INFO    peh.runner |   wayback_org: 660 items
+23:03:01 INFO    peh.runner |   wayback_org: 670 items
+23:03:01 INFO    peh.runner |   wayback_org: 680 items
+23:03:01 INFO    peh.runner |   wayback_org: 690 items
+23:03:01 INFO    peh.runner |   wayback_org: 700 items
+23:03:02 INFO    peh.runner |   wayback_org: 710 items
+23:03:02 INFO    peh.runner |   wayback_org: 720 items
+23:03:02 INFO    peh.runner |   wayback_org: 730 items
+23:03:03 INFO    peh.runner |   wayback_org: 740 items
+23:03:04 INFO    peh.runner | === wayback_org done: 743 items, 489 img, 162 files, dl=105 ===
+23:03:04 INFO    peh.runner | === harvest wayback_coza (limit=None, download=True) ===
+23:03:04 INFO    peh.wayback | populareducation.co.za: 548 pages, 385 assets, 196 never-ok URLs
+23:03:23 INFO    peh.runner |   wayback_coza: 10 items
+23:04:26 INFO    peh.runner |   wayback_coza: 20 items
+23:05:17 INFO    peh.runner |   wayback_coza: 30 items
+23:06:10 INFO    peh.runner |   wayback_coza: 40 items
+23:07:10 INFO    peh.runner |   wayback_coza: 50 items
+23:09:06 INFO    peh.runner |   wayback_coza: 60 items
+23:11:42 WARNING peh.http | stream fail https://web.archive.org/web/20170226062209id_/http://populareducation.co.za/sites/default/files/styles/media_gallery_thumbnail/public/2016-06-10_16.13.21.jpg?itok=I8vbuhnt: The read operation timed out
+23:11:42 INFO    peh.media | no-download (0) https://web.archive.org/web/20170226062209id_/http://populareducation.co.za/sites/default/files/styles/media_gallery_thumbnail/public/2016-06-10_16.13.21.jpg?itok=I8vbuhnt
+23:12:36 INFO    peh.runner |   wayback_coza: 70 items
+23:14:50 INFO    peh.runner |   wayback_coza: 80 items
+23:16:03 INFO    peh.runner |   wayback_coza: 90 items
+23:18:12 WARNING peh.wayback | page fetch failed https://web.archive.org/web/20150721025801id_/http://www.populareducation.co.za:80/content/exciting-popular-education-programme-2015-0
+23:18:57 INFO    peh.runner |   wayback_coza: 100 items
+23:20:25 INFO    peh.runner |   wayback_coza: 110 items
+23:20:36 INFO    peh.media | no-download (503) https://web.archive.org/web/20170930110443id_/http://www.populareducation.co.za/sites/default/files/forging_solidarity_front_cover_0.jpg
+23:21:31 WARNING peh.http | stream fail https://web.archive.org/web/20170930110443id_/http://www.populareducation.co.za/sites/default/files/forging_solidarity_front_cover_0.jpg: The read operation timed out
+23:21:31 INFO    peh.media | no-download (0) https://web.archive.org/web/20170930110443id_/http://www.populareducation.co.za/sites/default/files/forging_solidarity_front_cover_0.jpg
+23:23:08 INFO    peh.runner |   wayback_coza: 120 items
+23:26:35 INFO    peh.runner |   wayback_coza: 130 items
+23:28:52 INFO    peh.runner |   wayback_coza: 140 items
+23:34:02 INFO    peh.runner |   wayback_coza: 150 items
+23:35:51 INFO    peh.runner |   wayback_coza: 160 items
+23:38:51 INFO    peh.runner |   wayback_coza: 170 items
+23:41:58 INFO    peh.media | no-download (404) https://web.archive.org/web/20240712004105id_/http://populareducation.co.za/sites/default/files/nuclear_info_pamphlet.pdf
+23:42:05 INFO    peh.runner |   wayback_coza: 180 items
+23:42:58 WARNING peh.http | stream fail https://web.archive.org/web/20160611125841id_/http://populareducation.co.za/sites/default/files/know%20your%20rights%20poster.jpg: The read operation timed out
+23:42:58 INFO    peh.media | no-download (0) https://web.archive.org/web/20160611125841id_/http://populareducation.co.za/sites/default/files/know%20your%20rights%20poster.jpg
+23:44:18 WARNING peh.wayback | page fetch failed https://web.archive.org/web/20170612212948id_/http://www.populareducation.co.za/content/paint-it-purple-campaign
+23:44:44 INFO    peh.runner |   wayback_coza: 190 items
+23:47:05 INFO    peh.runner |   wayback_coza: 200 items
+23:47:54 INFO    peh.runner |   wayback_coza: 210 items
+23:48:17 INFO    peh.runner |   wayback_coza: 220 items
+23:49:14 INFO    peh.media | no-download (404) https://web.archive.org/web/20170226062258id_/http://populareducation.co.za/sites/default/files/privilege_walk_19_sept_aj.pdf
+23:49:42 INFO    peh.media | no-download (404) https://web.archive.org/web/20190710211544id_/http://www.populareducation.co.za:80/sites/default/files/PublicationsCatalogueOnline.pdf
+23:49:45 INFO    peh.runner |   wayback_coza: 230 items
+23:50:23 INFO    peh.runner |   wayback_coza: 240 items
+23:52:09 WARNING peh.wayback | page fetch failed https://web.archive.org/web/20170324085142id_/http://populareducation.co.za/content/review-catalytic-project
+23:52:23 INFO    peh.runner |   wayback_coza: 250 items
+23:53:34 INFO    peh.runner |   wayback_coza: 260 items
+23:53:56 INFO    peh.runner |   wayback_coza: 270 items
+23:54:30 INFO    peh.runner |   wayback_coza: 280 items
+23:55:42 INFO    peh.runner |   wayback_coza: 290 items
+23:56:09 INFO    peh.runner |   wayback_coza: 300 items
+23:56:24 INFO    peh.runner |   wayback_coza: 310 items
+23:57:01 INFO    peh.runner |   wayback_coza: 320 items
+23:57:15 INFO    peh.runner |   wayback_coza: 330 items
+23:59:13 INFO    peh.runner |   wayback_coza: 340 items
+23:59:28 INFO    peh.runner |   wayback_coza: 350 items
+23:59:41 INFO    peh.runner |   wayback_coza: 360 items
+23:59:50 WARNING peh.wayback | page fetch failed https://web.archive.org/web/20170324085130id_/http://populareducation.co.za/media-gallery/detail/387/878
+23:59:55 INFO    peh.runner |   wayback_coza: 370 items
+00:00:08 INFO    peh.runner |   wayback_coza: 380 items
+00:00:21 INFO    peh.runner |   wayback_coza: 390 items
+00:00:33 INFO    peh.runner |   wayback_coza: 400 items
+00:00:50 INFO    peh.runner |   wayback_coza: 410 items
+00:01:00 WARNING peh.wayback | page fetch failed https://web.archive.org/web/20170324084737id_/http://populareducation.co.za/media-gallery/detail/463/1033
+00:01:09 INFO    peh.runner |   wayback_coza: 420 items
+00:01:25 INFO    peh.runner |   wayback_coza: 430 items
+00:01:42 INFO    peh.runner |   wayback_coza: 440 items
+00:01:56 INFO    peh.runner |   wayback_coza: 450 items
+00:02:09 INFO    peh.runner |   wayback_coza: 460 items
+00:02:24 INFO    peh.runner |   wayback_coza: 470 items
+00:02:38 INFO    peh.runner |   wayback_coza: 480 items
+00:02:53 INFO    peh.runner |   wayback_coza: 490 items
+00:03:09 INFO    peh.runner |   wayback_coza: 500 items
+00:03:27 INFO    peh.runner |   wayback_coza: 510 items
+00:03:41 INFO    peh.runner |   wayback_coza: 520 items
+00:03:54 INFO    peh.runner |   wayback_coza: 530 items
+00:04:13 INFO    peh.runner | === wayback_coza done: 538 items, 488 img, 112 files, dl=195 ===
+
+=== harvest summary ===
+  wayback_org    items= 743  img= 489  files= 162  downloaded= 105  hotlinked= 537  err=0
+  wayback_coza   items= 538  img= 488  files= 112  downloaded= 195  hotlinked= 371  err=0
+  TOTAL          items=1281  downloaded_media=300
+
+output: /home/mno/populareducation-harvest/output/populareducation

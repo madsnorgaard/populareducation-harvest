@@ -112,6 +112,10 @@ def build_indexes(rows: list[list[str]], cfg: dict) -> dict:
         elif mime == "text/html":
             if seg in excl or key.endswith((".css", ".js", ".txt")):
                 continue
+            # Domain-squatter URLs (/26721/2019/... spam farm on late
+            # .co.za captures) are never site content.
+            if re.match(r"^/\d+/\d{4}(/|$)", key):
+                continue
             cur = pages.get(key)
             if not cur or ts > cur[0]:
                 pages[key] = (ts, orig)
@@ -130,10 +134,13 @@ def fetch_page(ctx: Ctx, slug: str, key: str, ts: str, orig: str) -> str | None:
     if cache.exists():
         return cache.read_text(encoding="utf-8", errors="replace")
     snap = f"https://web.archive.org/web/{ts}id_/{orig}"
-    text = ctx.f.get_text(snap, check_robots=False)
-    if text is None:
+    r = ctx.f.get(snap, check_robots=False)
+    if r is None or r.status_code != 200:
         log.warning("page fetch failed %s", snap)
         return None
+    # Raw snapshots carry no charset header; httpx would fall back to
+    # Latin-1 and double-encode. The D7 site always served UTF-8.
+    text = r.content.decode("utf-8", errors="replace")
     cache.write_text(text, encoding="utf-8")
     return text
 
